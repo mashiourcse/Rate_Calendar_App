@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 
-export const RateCalendar = ({room,i}) => {
+export const RateCalendar = ({rooms}) => {
   
     const containerRef = useRef(null);
     const elementsRef = useRef([]);
@@ -19,7 +19,7 @@ export const RateCalendar = ({room,i}) => {
           left,
         });
       };
-  
+      console.log(rooms)
       const handleScroll = (e) => {
         const scrolledEle = e.target;
         elements
@@ -46,8 +46,8 @@ export const RateCalendar = ({room,i}) => {
     }, []);
 
     console.log("Inside the Rate Calendar")
-  console.log(room);
-  console.log(i);
+
+ 
 
   const getDayName = (dateStr) =>{
     const dayNames = [
@@ -75,102 +75,115 @@ return date.getDate();
     const date = new Date(dateStr);
     return date.getFullYear();
   }
+
+  console.log(rooms)
     return (
-    <div className='product' ref={containerRef}>
-     {
-        i==0 &&  <table className='table table-responsive scrollable'>
-        {
-     <tr>
-    <th className='border-1 fixed-column'  style={{color: 'white'}}>Min. advance reservation</th>
-  <React.Fragment className="vertical-list">
-  {
-       room?.rate_plans[0]?.calendar.map((item, index)=>{
-            return <td 
-            //style={{color: "white"}}
-            className='border-1'
-            style={{color: i>0? 'white' : 'black'}}
-            >
-                {getDayName(item.date)}<br></br>
-                Open
-                {/* {item.date} */}
-                {/* <p>{getMonth(item.date)} {" "} {getYear(item.date)}</p> */}
-                {/* <span>{getDayName(item.date)} </span> */}
-                {/* <span>{getDay(item.date)}</span> */}
-            </td>
-        })
-        }
-  </React.Fragment>
+        <>
+        <div className='product' ref={containerRef}>
+            {
+                rooms.map((room,i)=>{
+                    return <div>
+                    {
+                           i==0 &&  <table className='table table-responsive scrollable'>
+                           {
+                        <tr>
+                       <th className='border-1 fixed-column'  style={{color: 'white'}}>Min. advance reservation</th>
+                     <React.Fragment className="vertical-list">
+                     {
+                          room?.rate_plans[0]?.calendar.map((item, index)=>{
+                               return <td 
+                               //style={{color: "white"}}
+                               className='border-1'
+                               style={{color: i>0? 'white' : 'black'}}
+                               >
+                                   {getDayName(item.date)}<br></br>
+                                   Open
+                                   {/* {item.date} */}
+                                   {/* <p>{getMonth(item.date)} {" "} {getYear(item.date)}</p> */}
+                                   {/* <span>{getDayName(item.date)} </span> */}
+                                   {/* <span>{getDay(item.date)}</span> */}
+                               </td>
+                           })
+                           }
+                     </React.Fragment>
+                       
+                   </tr>
+                   }
+                   
+                           </table>
+                        }
+                          
+                           <h2 className='float-left'>{room.name}</h2>
+                   <table className='table table-responsive scrollable'>
+                   
+                       
+                       {/* <tr>
+                           <th className='border-1'>{room.name}</th>
+                       </tr> */}
+                   
+                       <tr>
+                           <th className='border-1 fixed-column'>Room status</th>
+                           {
+                               room?.inventory_calendar?.map((item, index)=>{
+                                   if(item?.status)
+                                       return <td className='border-1'>{"Open"}</td>;
+                                   else
+                                       return <td className='border-1'>{"Close"}</td>;
+                               })
+                               }
+                       </tr>
+                       <tr>
+                           <th className='border-1 fixed-column'>Room to sell</th>
+                           {
+                               room?.inventory_calendar?.map((item, index)=>{
+                                   return <td className='border-1'>{item.available}</td>
+                               })
+                               }
+                       </tr>
+                       <tr>
+                           <th className='border-1 fixed-column'>Net booked</th>
+                           {
+                               room?.inventory_calendar?.map((item, index)=>{
+                                   return <td className='border-1'>{item.booked}</td>
+                               })
+                               }
+                       </tr>
+                       <tr>
+                           <th className='border-1 fixed-column'>Standard Rate
+                               icon x {room?.occupancy}
+                   
+                           </th>
+                           {
+                               room?.rate_plans[0]?.calendar.map((item, index)=>{
+                                   return <td className='border-1'>{item.rate}</td>
+                               })
+                               }
+                       </tr>
+                       <tr>
+                           <th className='border-1 fixed-column' >Min. length of stay</th>
+                           {
+                               room?.rate_plans[0]?.calendar.map((item, index)=>{
+                                   return <td className='border-1'>{item.min_length_of_stay}</td>
+                               })
+                               }
+                       </tr>
+                       <tr>
+                           <th className='border-1 fixed-column' >Min. advance reservation</th>
+                           {
+                               room?.rate_plans[0]?.calendar.map((item, index)=>{
+                                   return <td className='border-1'>{item.reservation_deadline}</td>
+                               })
+                               }
+                       </tr>
+                   </table>
+                    </div>
+                })
+            }
+             
+           
+               </div>
+      
     
-</tr>
-}
-
-        </table>
-     }
-       
-        <h2 className='float-left'>{room.name}</h2>
-<table className='table table-responsive scrollable'>
-
-    
-    {/* <tr>
-        <th className='border-1'>{room.name}</th>
-    </tr> */}
-
-    <tr>
-        <th className='border-1 fixed-column'>Room status</th>
-        {
-            room?.inventory_calendar?.map((item, index)=>{
-                if(item?.status)
-                    return <td className='border-1'>{"Open"}</td>;
-                else
-                    return <td className='border-1'>{"Close"}</td>;
-            })
-            }
-    </tr>
-    <tr>
-        <th className='border-1 fixed-column'>Room to sell</th>
-        {
-            room?.inventory_calendar?.map((item, index)=>{
-                return <td className='border-1'>{item.available}</td>
-            })
-            }
-    </tr>
-    <tr>
-        <th className='border-1 fixed-column'>Net booked</th>
-        {
-            room?.inventory_calendar?.map((item, index)=>{
-                return <td className='border-1'>{item.booked}</td>
-            })
-            }
-    </tr>
-    <tr>
-        <th className='border-1 fixed-column'>Standard Rate
-            icon x {room?.occupancy}
-
-        </th>
-        {
-            room?.rate_plans[0]?.calendar.map((item, index)=>{
-                return <td className='border-1'>{item.rate}</td>
-            })
-            }
-    </tr>
-    <tr>
-        <th className='border-1 fixed-column' >Min. length of stay</th>
-        {
-            room?.rate_plans[0]?.calendar.map((item, index)=>{
-                return <td className='border-1'>{item.min_length_of_stay}</td>
-            })
-            }
-    </tr>
-    <tr>
-        <th className='border-1 fixed-column' >Min. advance reservation</th>
-        {
-            room?.rate_plans[0]?.calendar.map((item, index)=>{
-                return <td className='border-1'>{item.reservation_deadline}</td>
-            })
-            }
-    </tr>
-</table>
-
-    </div>
+    </>
   )
 }

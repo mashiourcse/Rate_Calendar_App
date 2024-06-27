@@ -25,13 +25,7 @@ useEffect( ()=>{
     console.log(rooms)
     return (
         <>
-        {
-            rooms?.length > 0 && rooms?.map( (room, i)=>{
-                return <RateCalendar key={i} i={i} room={room} />
-
-            })
-            
-        }
+       <RateCalendar  rooms={rooms} />
     </>
   )
 }
