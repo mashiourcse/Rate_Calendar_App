@@ -1,0 +1,95 @@
+.product {
+    /* width: 500px; */
+    margin: 70px 50px; /* Centers the div horizontally */
+  }
+  
+.product .header{
+
+    background: #83CBEB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.product h4{
+    text-align: center;
+    background-color: #C1E5F5;
+    margin: 10px;
+    padding: 15px 40px;
+    border-radius: 5px;
+}
+.product .table .top-section{
+
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+.product .table .top-section .right-side{
+    float: right;
+}
+
+.product .table .top-section span{
+    margin-left: 50px;
+}
+
+.product .table .top-section .input{
+    border-color: #83CBEB;
+}
+
+.product .pagination{
+
+    justify-content: center;
+}
+
+.product .form {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.product h4{
+    text-align: center;
+    background-color: #C1E5F5;
+    margin: 10px;
+    padding: 15px 40px;
+    border-radius: 5px;
+}
+.product .form .row{
+    /* width: 80%; */
+    
+}
+
+.product .form .details .row input{
+    padding: 2px;
+}
+
+.product .details h5{
+    text-align: center;
+  
+    margin: 10px;
+    padding: 15px 40px;
+    border-radius: 5px;
+}
+
+.product .btn-primary {
+    background-color: #83CBEB;
+}
+
+.product .submit-group{
+    float: right;
+    width: calc(20% - 10px); /* Adjust width as needed */
+  margin: 65px; /* Adjust margin as needed */
+}
+
+.table {
+    width: 100% !important;
+}
+
+.fixed-column{
+    position: sticky;
+    left: 0;
+    background-color: #fff;
+    z-index: 1;
+    box-shadow: 1px 0 0 #ddd;
+
+}

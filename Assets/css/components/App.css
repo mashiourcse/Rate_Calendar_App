@@ -1,0 +1,94 @@
+
+.Recommendation_System{
+  margin: 0;
+  padding: 0;
+}
+
+.navlink{
+  font-weight: 700,
+}
+.nutrition-form {
+  padding-top: 72px;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.NutritionInput{
+
+  /* display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  gap: 2vw;
+  flex-wrap: wrap; */
+  background-color: #efefef;
+  margin: 16px;
+  padding: 16px;
+  width: 350px;
+}
+
+/* .card {
+  background-color: #efefef;
+  border-radius: 0.5em;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 1em;
+ 
+} */
+
+.food-container{
+  /* background-color: green; */
+  width: 100%;
+  padding-top: 10px;
+  margin-top: 86px;
+}
+.scrollable-content {
+  /* height: 572px; */
+  width: 100%;
+ 
+}
+/* .categoryCard {
+  width: 40%;
+  height: 20rem;
+} */
+.single-item{
+  margin: 20px;
+  transition: transform 0.2s ease;
+}
+.single-item:hover {
+    transform: scale(1.02);
+}
+/* Navbar.css */
+
+.home-section{
+ margin-top: 65px;
+}
+
+.about-section{
+  margin-top: 70px;
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile{
+  margin: 2px;
+}
+/* Add other styles as needed */
+
+.card-img-top{
+  padding: 20px;
+  border-radius: 50%;
+}
+
+.facts-card{
+
+margin: 40px 40px;
+
+/* width: 586px; */
+
+padding: 20px 20px;
+
+border-radius: 50px;
+}

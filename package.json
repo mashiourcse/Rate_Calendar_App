@@ -1,0 +1,44 @@
+{
+  "name": "convex-nutrition--recommendation-system",
+  "version": "1.4.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite --port 4000 --open",
+    "predeploy": "npm run build",
+    "dev": "vite --port 4000 --open",
+    "build": "vite build",
+    "serve": "vite preview --open",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@popperjs/core": "^2.11.8",
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.2",
+    "convex": "^1.10.0",
+    "express": "^4.19.2",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "react-fontawesome": "^1.7.1",
+    "react-router-dom": "^6.22.3"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.6",
+    "@testing-library/react": "^14.1.2",
+    "@vitejs/plugin-react": "^4.2.1",
+    "css-loader": "^6.10.0",
+    "gh-pages": "^6.1.1",
+    "jsdom": "^23.0.1",
+    "sass": "^1.71.1",
+    "style-loader": "^3.3.4",
+    "vite": "^5.0.8",
+    "vitest": "^1.1.1",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  }
+}

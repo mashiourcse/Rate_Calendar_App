@@ -1,0 +1,30 @@
+.animate{
+
+    transition: color 2s;
+}
+
+.animate:hover{
+    color: white;
+}
+
+.facts-card{
+
+margin: 40px 40px;
+
+
+
+padding: 20px 20px;
+
+border-radius: 50px;
+
+transition: transform 0.5s ease;
+
+}
+
+    .facts-card:hover{
+        transform: scale(1.05);
+    }
+
+    .custom-link{
+        color: black
+    }
