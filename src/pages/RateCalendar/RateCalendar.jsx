@@ -43,7 +43,7 @@ export const RateCalendar = ({rooms}) => {
           ele.removeEventListener('scroll', handleScroll);
         });
       };
-    }, []);
+    }, );
 
     console.log("Inside the Rate Calendar")
 
@@ -51,7 +51,7 @@ export const RateCalendar = ({rooms}) => {
 
   const getDayName = (dateStr) =>{
     const dayNames = [
-        "Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"
+        "Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"
       ];
       
     const date = new Date(dateStr);
@@ -82,7 +82,7 @@ return date.getDate();
         <div className='product' ref={containerRef}>
             {
                 rooms.map((room,i)=>{
-                    return <div>
+                    return <div className='scrollable'>
                     {
                            i==0 &&  <table className='table table-responsive scrollable'>
                            {
@@ -94,14 +94,20 @@ return date.getDate();
                                return <td 
                                //style={{color: "white"}}
                                className='border-1'
-                               style={{color: i>0? 'white' : 'black'}}
+                              //  style={{color: i>0? 'white' : 'black'}}
+                              
                                >
+                                <div>
                                    {getDayName(item.date)}<br></br>
-                                   Open
+                                   
                                    {/* {item.date} */}
                                    {/* <p>{getMonth(item.date)} {" "} {getYear(item.date)}</p> */}
                                    {/* <span>{getDayName(item.date)} </span> */}
-                                   {/* <span>{getDay(item.date)}</span> */}
+                                   <br></br>
+                                   <span>{getDay(item.date)}</span>
+                                   <br/>
+                                   Open
+                                   </div>
                                </td>
                            })
                            }
@@ -114,7 +120,7 @@ return date.getDate();
                         }
                           
                            <h2 className='float-left'>{room.name}</h2>
-                   <table className='table table-responsive scrollable'>
+                   <table className='table table-responsive scrollable hidescroll'>
                    
                        
                        {/* <tr>
@@ -126,9 +132,17 @@ return date.getDate();
                            {
                                room?.inventory_calendar?.map((item, index)=>{
                                    if(item?.status)
-                                       return <td className='border-1'>{"Open"}</td>;
+                                       return <td className='border-1 '>
+                                        <div>
+                                        {"Open"} 
+                                        </div>
+                                        </td>;
                                    else
-                                       return <td className='border-1'>{"Close"}</td>;
+                                       return <td className='border-1 '>
+                                        <div>
+                                        {"Close"}
+                                        </div>
+                                        </td>;
                                })
                                }
                        </tr>

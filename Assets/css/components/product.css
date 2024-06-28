@@ -93,3 +93,17 @@
     box-shadow: 1px 0 0 #ddd;
 
 }
+
+.hidescroll::-webkit-scrollbar{
+   display: none;
+}
+.day-date{
+
+    padding: 18px !important;
+}
+
+.room-cel{
+    padding: 10px !important;
+}
+
+
