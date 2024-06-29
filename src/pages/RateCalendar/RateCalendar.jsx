@@ -79,38 +79,95 @@ return date.getDate();
   console.log(rooms)
     return (
         <>
+        
         <div className='product' ref={containerRef}>
             {
                 rooms.map((room,i)=>{
                     return <div className='scrollable'>
-                    {
-                           i==0 &&  <table className='table table-responsive scrollable'>
-                           {
+                    
+                          {
+                           i==0 &&  <table className='table table-responsive scrollable '>
+                            {
                         <tr>
-                       <th className='border-1 fixed-column'  style={{color: 'white'}}>Min. advance reservation</th>
+                       <th className='border-1 fixed-column'  style={{color: 'white'}}>
+                        <div className='title_header'>
+                        <span style={{color: "white"}}>Min. advance reservation</span>
+                        </div>
+                        
+                        </th>
                      <React.Fragment className="vertical-list">
                      {
-                          room?.rate_plans[0]?.calendar.map((item, index)=>{
-                               return <td 
-                               //style={{color: "white"}}
-                               className='border-1'
-                              //  style={{color: i>0? 'white' : 'black'}}
-                              
-                               >
-                                <div>
-                                   {getDayName(item.date)}<br></br>
-                                   
-                                   {/* {item.date} */}
-                                   {/* <p>{getMonth(item.date)} {" "} {getYear(item.date)}</p> */}
-                                   {/* <span>{getDayName(item.date)} </span> */}
-                                   <br></br>
-                                   <span>{getDay(item.date)}</span>
-                                   <br/>
-                                   Open
-                                   </div>
-                               </td>
-                           })
-                           }
+  room?.rate_plans[0]?.calendar.map((item, index) => {
+    const currentItem = item;
+    const prevItem = index > 0 ? room?.rate_plans[0]?.calendar[index - 1] : undefined;
+
+    const currentMonth = getMonth(currentItem.date);
+    const currentYear = getYear(currentItem.date);
+    const prevMonth = prevItem ? getMonth(prevItem.date) : null;
+    const prevYear = prevItem ? getYear(prevItem.date) : null;
+
+    return (
+      <>
+      
+      
+      <td
+        className='border-1'
+        key={index}
+        
+      >
+        <div style={{ width: "85px" }}>
+          {(currentMonth !== prevMonth || currentYear !== prevYear) && (
+            <span>{`${currentMonth} ${currentYear}`}</span>
+          )}
+       
+          </div>
+      </td>
+      
+      </>
+    );
+  })
+}
+                     </React.Fragment>
+                       
+                   </tr>
+                   }
+                           {
+                            
+                        <tr>
+                       <th className='border-1 fixed-column'  style={{color: 'white'}}><div className='title_header'>
+                        <span style={{color: "white"}}>Min. advance reservation</span>
+                        </div></th>
+                     <React.Fragment className="vertical-list">
+                     {
+  room?.rate_plans[0]?.calendar.map((item, index) => {
+    const currentItem = item;
+    const prevItem = index > 0 ? room?.rate_plans[0]?.calendar[index - 1] : undefined;
+
+    const currentMonth = getMonth(currentItem.date);
+    const currentYear = getYear(currentItem.date);
+    const prevMonth = prevItem ? getMonth(prevItem.date) : null;
+    const prevYear = prevItem ? getYear(prevItem.date) : null;
+
+    return (
+      <>
+      
+      
+      <td
+        className='border-1'
+        key={index}
+        
+      >
+        <div style={{ width: "85px" }}>
+          
+          {getDayName(item.date)}<br />
+          <span>{getDay(item.date)}</span><br />
+          </div>
+      </td>
+      
+      </>
+    );
+  })
+}
                      </React.Fragment>
                        
                    </tr>
@@ -118,7 +175,6 @@ return date.getDate();
                    
                            </table>
                         }
-                          
                            <h2 className='float-left'>{room.name}</h2>
                    <table className='table table-responsive scrollable hidescroll'>
                    
@@ -128,18 +184,22 @@ return date.getDate();
                        </tr> */}
                    
                        <tr>
-                           <th className='border-1 fixed-column'>Room status</th>
+                           <th className='border-1 fixed-column'>
+                           <div className='title_header'>
+                        <span>Room Status</span>
+                        </div>
+                           </th>
                            {
                                room?.inventory_calendar?.map((item, index)=>{
                                    if(item?.status)
                                        return <td className='border-1 '>
-                                        <div>
+                                        <div style={{width: "85px"}}>
                                         {"Open"} 
                                         </div>
                                         </td>;
                                    else
                                        return <td className='border-1 '>
-                                        <div>
+                                        <div style={{width: "85px"}}>
                                         {"Close"}
                                         </div>
                                         </td>;
@@ -163,8 +223,13 @@ return date.getDate();
                                }
                        </tr>
                        <tr>
-                           <th className='border-1 fixed-column'>Standard Rate
-                               icon x {room?.occupancy}
+                           <th className='border-1 fixed-column'>
+
+                            <span>Standard Rate</span>
+                            <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+  <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+</svg> x {room?.occupancy}</p>
+                               
                    
                            </th>
                            {

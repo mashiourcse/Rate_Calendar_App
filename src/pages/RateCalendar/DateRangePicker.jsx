@@ -1,14 +1,13 @@
 import { format } from 'date-fns';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-export const DateRangePicker = ({startDate,setStartDate,endDate,setEndDate}) => {
-  
+export const DateRangePicker = ({startDate, setStartDate, endDate, setEndDate}) => {
   return (
-    <div className='product'>
+    <div className='product text-center'>
       <h3>Rate Calendar</h3>
-      <div>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
         <DatePicker
           selected={startDate}
           onChange={(date) => setStartDate(date)}
@@ -17,6 +16,7 @@ export const DateRangePicker = ({startDate,setStartDate,endDate,setEndDate}) => 
           endDate={endDate}
           dateFormat="MM/dd/yyyy"
           placeholderText="Start Date"
+          className="datepicker"
         />
         {' - '}
         <DatePicker
@@ -28,13 +28,9 @@ export const DateRangePicker = ({startDate,setStartDate,endDate,setEndDate}) => 
           minDate={startDate}
           dateFormat="MM/dd/yyyy"
           placeholderText="End Date"
+          className="datepicker"
         />
       </div>
-      {/* {startDate && endDate && (
-        <div>
-          <p>Selected Date Range: {format(startDate, 'yyyy-MM-dd')} - {format(endDate, 'yyyy-MM-dd')}</p>
-        </div>
-      )} */}
     </div>
   );
 };

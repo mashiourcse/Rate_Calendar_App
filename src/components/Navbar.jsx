@@ -33,7 +33,7 @@ const Navbar = () => {
         >
           <ul className="navbar-nav " >
            
-            <li
+            {/* <li
               className={`nav-item ${
                 activeNavItem === "product-list" ? "active" : ""
               }`}
@@ -45,8 +45,8 @@ const Navbar = () => {
               >
                 Product
               </Link>
-            </li>
-            <li
+            </li> */}
+            {/* <li
               className={`nav-item ${
                 activeNavItem === "order-list" ? "active" : ""
               }`}
@@ -58,7 +58,7 @@ const Navbar = () => {
               >
                 Order
               </Link>
-            </li>
+            </li> */}
             <li
               className={`nav-item ${
                 activeNavItem === "order-list" ? "active" : ""
