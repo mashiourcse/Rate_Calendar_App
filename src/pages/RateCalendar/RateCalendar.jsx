@@ -76,6 +76,7 @@ return date.getDate();
     return date.getFullYear();
   }
 
+  
   console.log(rooms)
     return (
         <>
@@ -135,7 +136,7 @@ return date.getDate();
                             
                         <tr>
                        <th className='border-1 fixed-column'  style={{color: 'white'}}><div className='title_header'>
-                        <span style={{color: "white"}}>Min. advance reservation</span>
+                        <span style={{color: "white"}}></span>
                         </div></th>
                      <React.Fragment className="vertical-list">
                      {
@@ -159,7 +160,7 @@ return date.getDate();
       >
         <div style={{ width: "85px" }}>
           
-          {getDayName(item.date)}<br />
+          <span>{getDayName(item.date)}</span><br />
           <span>{getDay(item.date)}</span><br />
           </div>
       </td>
@@ -176,6 +177,7 @@ return date.getDate();
                            </table>
                         }
                            <h2 className='float-left'>{room.name}</h2>
+                           <button className='btn btn-info float-right' style={{fontWeight: "bold", color: "white", background: "#F3794A",borderColor: '#F3794A'}}>+ Bulk Edit</button>
                    <table className='table table-responsive scrollable hidescroll'>
                    
                        
@@ -183,7 +185,7 @@ return date.getDate();
                            <th className='border-1'>{room.name}</th>
                        </tr> */}
                    
-                       <tr>
+                       <tr >
                            <th className='border-1 fixed-column'>
                            <div className='title_header'>
                         <span>Room Status</span>
@@ -192,15 +194,16 @@ return date.getDate();
                            {
                                room?.inventory_calendar?.map((item, index)=>{
                                    if(item?.status)
-                                       return <td className='border-1 '>
-                                        <div style={{width: "85px"}}>
-                                        {"Open"} 
+                                       return <td className='border-1 ' style={{background: "#276F2B"}}>
+                                        <div style={{width: "85px",background: "#276F2B",color: 'white' }}>
+                                        <span>{"Open"}</span> 
                                         </div>
                                         </td>;
                                    else
-                                       return <td className='border-1 '>
-                                        <div style={{width: "85px"}}>
-                                        {"Close"}
+                                       return <td className='border-1 '  style={{background: "red"}}>
+                                        <div style={{width: "85px",background: "red",color: 'white' }}>
+                                        
+                                        <span>{"Close"}</span>
                                         </div>
                                         </td>;
                                })
@@ -210,7 +213,7 @@ return date.getDate();
                            <th className='border-1 fixed-column'>Room to sell</th>
                            {
                                room?.inventory_calendar?.map((item, index)=>{
-                                   return <td className='border-1'>{item.available}</td>
+                                   return <td className='border-1' style={{background: item?.status ? "white": "red"}}><span style={{background: item?.status ? "white": "red"}}>{item.available}</span></td>
                                })
                                }
                        </tr>
@@ -218,7 +221,7 @@ return date.getDate();
                            <th className='border-1 fixed-column'>Net booked</th>
                            {
                                room?.inventory_calendar?.map((item, index)=>{
-                                   return <td className='border-1'>{item.booked}</td>
+                                   return <td className='border-1' style={{background: item?.status ? "white": "red"}}><span style={{background: item?.status ? "white": "red"}}>{item.booked}</span></td>
                                })
                                }
                        </tr>
@@ -226,7 +229,7 @@ return date.getDate();
                            <th className='border-1 fixed-column'>
 
                             <span>Standard Rate</span>
-                            <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <p style={{color: "#007CCC"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
   <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
 </svg> x {room?.occupancy}</p>
                                
@@ -234,7 +237,7 @@ return date.getDate();
                            </th>
                            {
                                room?.rate_plans[0]?.calendar.map((item, index)=>{
-                                   return <td className='border-1'>{item.rate}</td>
+                                   return <td className='border-1' style={{background: room?.inventory_calendar[index].status ? "white": "red"}}><span style={{background: room?.inventory_calendar[index].status ? "white": "red"}}>{item.rate}</span></td>
                                })
                                }
                        </tr>
@@ -242,7 +245,7 @@ return date.getDate();
                            <th className='border-1 fixed-column' >Min. length of stay</th>
                            {
                                room?.rate_plans[0]?.calendar.map((item, index)=>{
-                                   return <td className='border-1'>{item.min_length_of_stay}</td>
+                                   return <td className='border-1' style={{background: room?.inventory_calendar[index].status ? "white": "red"}}><span style={{background: room?.inventory_calendar[index].status ? "white": "red"}}>{item.min_length_of_stay}</span></td>
                                })
                                }
                        </tr>
@@ -250,7 +253,7 @@ return date.getDate();
                            <th className='border-1 fixed-column' >Min. advance reservation</th>
                            {
                                room?.rate_plans[0]?.calendar.map((item, index)=>{
-                                   return <td className='border-1'>{item.reservation_deadline}</td>
+                                   return <td className='border-1' style={{background: room?.inventory_calendar[index].status ? "white": "red"}}><span style={{background: room?.inventory_calendar[index].status ? "white": "red"}}>{item.reservation_deadline}</span></td>
                                })
                                }
                        </tr>
