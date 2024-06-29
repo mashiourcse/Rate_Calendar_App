@@ -5,10 +5,11 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export const DateRangePicker = ({startDate, setStartDate, endDate, setEndDate}) => {
   return (
-    <div className='product text-center'>
+    <div className='product '>
       <h3>Rate Calendar</h3>
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', border: '1px solid #A8A8A8', borderRadius: '5px', width: "600px" }}>
         <DatePicker
+
           selected={startDate}
           onChange={(date) => setStartDate(date)}
           selectsStart
@@ -16,7 +17,7 @@ export const DateRangePicker = ({startDate, setStartDate, endDate, setEndDate}) 
           endDate={endDate}
           dateFormat="MM/dd/yyyy"
           placeholderText="Start Date"
-          className="datepicker"
+          className="datepicker btn btn-alert"
         />
         {' - '}
         <DatePicker
@@ -28,7 +29,7 @@ export const DateRangePicker = ({startDate, setStartDate, endDate, setEndDate}) 
           minDate={startDate}
           dateFormat="MM/dd/yyyy"
           placeholderText="End Date"
-          className="datepicker"
+          className="datepicker btn btn-alert"
         />
       </div>
     </div>

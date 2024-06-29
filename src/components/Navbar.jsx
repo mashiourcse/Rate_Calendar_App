@@ -33,32 +33,7 @@ const Navbar = () => {
         >
           <ul className="navbar-nav " >
            
-            {/* <li
-              className={`nav-item ${
-                activeNavItem === "product-list" ? "active" : ""
-              }`}
-            >
-              <Link
-                className="custom-link font-weight-bold nav-link"
-                to={"/product-list"}
-                onClick={() => handleNavItemClick("product-list")}
-              >
-                Product
-              </Link>
-            </li> */}
-            {/* <li
-              className={`nav-item ${
-                activeNavItem === "order-list" ? "active" : ""
-              }`}
-            >
-              <Link
-                className="custom-link font-weight-bold nav-link"
-                to={"/order-list"}
-                onClick={() => handleNavItemClick("order-list")}
-              >
-                Order
-              </Link>
-            </li> */}
+           
             <li
               className={`nav-item ${
                 activeNavItem === "order-list" ? "active" : ""
